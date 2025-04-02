@@ -14,7 +14,8 @@
   "license": "ISC",
   "description": "eCommerce application built with the MERN",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.13.1"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
