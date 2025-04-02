@@ -3,9 +3,12 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+import connectDb from "./config/db.js";
 import products from "./data/products.js";
 
 const PORT = process.env.PORT || 5000;
+
+connectDb();
 
 const app = express();
 
@@ -26,8 +29,7 @@ app.get("/api/products/:id", (req, res) => {
   } else {
     res.status(404).json({ message: "Product not found" });
   }
-}
-);
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
