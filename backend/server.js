@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 
 import ProductRouter from "./routes/ProductRoutes.js";
+import UserRouter from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.get("/", (_, res) => {
 });
 
 app.use("/api/products", ProductRouter);
+app.use("/api/users", UserRouter);
 
 app.use(notFound);
 app.use(errorHandler);
