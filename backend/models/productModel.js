@@ -1,26 +1,29 @@
 import mongoose from "mongoose";
 
-const reviewSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "User",
+const reviewSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: Number,
+      required: true,
+    },
+    comment: {
+      type: String,
+      required: true,
+    },
   },
-  name: {
-    type: "string",
-    required: true,
-  },
-  rating: {
-    type: "number",
-    required: true,
-  },
-  comment: {
-    type: "string",
-    required: true,
-  },
-}, {
-  timestamps: true,
-})
+  {
+    timestamps: true,
+  }
+);
 
 const productSchema = new mongoose.Schema(
   {
@@ -30,43 +33,43 @@ const productSchema = new mongoose.Schema(
       ref: "User",
     },
     name: {
-      type: "string",
+      type: String,
       required: true,
     },
     image: {
-      type: "string",
+      type: String,
       required: true,
     },
     brand: {
-      type: "string",
+      type: String,
       required: true,
     },
     category: {
-      type: "string",
+      type: String,
       required: true,
     },
     description: {
-      type: "string",
+      type: String,
       required: true,
     },
     review: [reviewSchema],
     rating: {
-      type: "number",
+      type: Number,
       required: true,
       default: 0,
     },
     numReviews: {
-      type: "number",
+      type: Number,
       required: true,
       default: 0,
     },
     price: {
-      type: "number",
+      type: Number,
       required: true,
       default: 0,
     },
     countInStock: {
-      type: "number",
+      type: Number,
       required: true,
       default: 0,
     },
@@ -75,7 +78,6 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 
 const Product = mongoose.model("Product", productSchema);
 export default Product;
