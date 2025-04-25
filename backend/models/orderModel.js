@@ -68,7 +68,7 @@ const orderItemSchema = mongoose.Schema(
         type: String,
       },
     },
-    price: {
+    ItemsPrice: {
       type: Number,
       required: true,
       default: 0,
